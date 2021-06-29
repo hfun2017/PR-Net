@@ -212,7 +212,6 @@ for deformation in deformation_list:
         total_loss = 0.0
         op_schedule.step(epoch)
         for batch_idx, (x,y,theta,_) in enumerate(data_loader):
-            print(batch_idx)
             x, y, theta = x.cuda(), y.cuda(), theta.cuda()        
             x, y, theta = Variable(x).float(), Variable(y).float(), Variable(theta).float()
             theta_hat=net(x,y)
