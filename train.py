@@ -206,8 +206,8 @@ for deformation in deformation_list:
     net = nn.DataParallel(net)
     net.cuda()
     cudnn.benchmark = True  
-
-    for epoch in range(0, EP):
+    from tqdm import trange
+    for epoch in trange(0, EP):
         net.train()
         total_loss = 0.0
         op_schedule.step(epoch)
@@ -232,6 +232,7 @@ for deformation in deformation_list:
     BB=[]
     
     for batch_idx, (x,y,theta,_) in enumerate(data_loader_test):
+            print("testing ...")
             x, y, theta = x.cuda(), y.cuda(), theta.cuda()        
             x, y, theta = Variable(x).float(), Variable(y).float(), Variable(theta).float()
 
