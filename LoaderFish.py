@@ -39,7 +39,7 @@ class PointRegDataset(Dataset):
                  miss_source=False,
                 noise_s=False,
                 noise_t=False,
-                clas=2):
+                clas=4):
         
         self.deform_level=deform_level
         self.noise_ratio=noise_ratio
